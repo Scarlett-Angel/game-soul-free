@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="soulfree" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:54121/soulfree.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:54121/soulfree.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Isoulfree_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_newAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:newAccount" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_newAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:newAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_newCharacter_InputMessage">
+    <wsdl:part name="parameters" element="tns:newCharacter" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_newCharacter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:newCharacterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_getAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountId" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_getAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_getCharLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCharLevel" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_getCharLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCharLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_sqlcommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:sqlcommand" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_sqlcommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:sqlcommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_getSkillLevel_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSkillLevel" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_getSkillLevel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSkillLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_levelUpSkill_InputMessage">
+    <wsdl:part name="parameters" element="tns:levelUpSkill" />
+  </wsdl:message>
+  <wsdl:message name="Isoulfree_levelUpSkill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:levelUpSkillResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Isoulfree">
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/login" message="tns:Isoulfree_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/loginResponse" message="tns:Isoulfree_login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="newAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/newAccount" message="tns:Isoulfree_newAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/newAccountResponse" message="tns:Isoulfree_newAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="newCharacter">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/newCharacter" message="tns:Isoulfree_newCharacter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/newCharacterResponse" message="tns:Isoulfree_newCharacter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountId">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/getAccountId" message="tns:Isoulfree_getAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/getAccountIdResponse" message="tns:Isoulfree_getAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCharLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/getCharLevel" message="tns:Isoulfree_getCharLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/getCharLevelResponse" message="tns:Isoulfree_getCharLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="sqlcommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/sqlcommand" message="tns:Isoulfree_sqlcommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/sqlcommandResponse" message="tns:Isoulfree_sqlcommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSkillLevel">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/getSkillLevel" message="tns:Isoulfree_getSkillLevel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/getSkillLevelResponse" message="tns:Isoulfree_getSkillLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="levelUpSkill">
+      <wsdl:input wsaw:Action="http://tempuri.org/Isoulfree/levelUpSkill" message="tns:Isoulfree_levelUpSkill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Isoulfree/levelUpSkillResponse" message="tns:Isoulfree_levelUpSkill_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Isoulfree" type="tns:Isoulfree">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newAccount">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/newAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newCharacter">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/newCharacter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountId">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/getAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCharLevel">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/getCharLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sqlcommand">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/sqlcommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSkillLevel">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/getSkillLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="levelUpSkill">
+      <soap:operation soapAction="http://tempuri.org/Isoulfree/levelUpSkill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="soulfree">
+    <wsdl:port name="BasicHttpBinding_Isoulfree" binding="tns:BasicHttpBinding_Isoulfree">
+      <soap:address location="http://localhost:54121/soulfree.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Data;
 
 /// <summary>
@@ -10,7 +10,7 @@ using System.Data;
 /// </summary>
 public class DBconnect
 {
-    private MySqlConnection connection;
+    private SqlConnection connection;
     private string server;
     private string database;
     private string uid;
@@ -34,7 +34,7 @@ public class DBconnect
         string connectionString;
         connectionString = "Server=" + server + "; DATABASE=" + database + "; UID=" + uid + "; PASSWORD=" + password + ";";
 
-        connection = new MySqlConnection(connectionString);
+        connection = new SqlConnection(connectionString);
     }
     private bool OpenConnection()
     {
@@ -65,7 +65,7 @@ public class DBconnect
     {
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             this.CloseConnection();
         }
@@ -77,7 +77,7 @@ public class DBconnect
         int countusers;
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             countusers = int.Parse(cmd.ExecuteScalar() + "");
             this.CloseConnection();
             if (countusers > 0)
@@ -99,7 +99,7 @@ public class DBconnect
         if (this.OpenConnection() == true)
         {
 
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             this.CloseConnection();
             return true;
@@ -115,7 +115,7 @@ public class DBconnect
         if (this.OpenConnection() == true)
         {
             string query = "SELECT COUNT(*) FROM (SELECT users.id, characters.userid from `users` INNER JOIN `characters` on users.id = characters.userid WHERE username = '" + username + "') temptable;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             count = int.Parse(cmd.ExecuteScalar() + "");
             if (count > 0)
             {
@@ -139,7 +139,7 @@ public class DBconnect
         string query = "Select id from characters where userid ='" + id + "' and death is NULL;";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             int charId = int.Parse(cmd.ExecuteScalar() + "");
             this.CloseConnection();
             return charId;
@@ -153,7 +153,7 @@ public class DBconnect
         string query = "SELECT COUNT(*) FROM character_skills WHERE characterid='" + charid + "' AND skillid='" + sid + "';";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             count = int.Parse(cmd.ExecuteScalar() + "");
             this.CloseConnection();
         }
@@ -162,7 +162,7 @@ public class DBconnect
             query = "UPDATE character_skills SET value = value + 1 WHERE characterid='" + charid + "' AND skillid='" + sid + "';";
             if (this.OpenConnection() == true)
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
 
@@ -174,7 +174,7 @@ public class DBconnect
             query = "INSERT INTO character_skills (characterid, skillid, value) VALUES ('" + charid + "','" + sid + "', '1');";
             if (this.OpenConnection() == true)
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
 
@@ -189,7 +189,7 @@ public class DBconnect
         string query = "INSERT INTO characters ( name, userid) VALUES ('" + characterName + "','" + id + "');";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             this.CloseConnection();
         }
@@ -197,7 +197,7 @@ public class DBconnect
         query = "INSERT INTO character_levels (characterid, levelid, rating, progression) VALUES ('" + charId + "', '1', '1','0'); INSERT INTO character_skills(characterid, skillid, value) VALUES ('" + charId + "','1','1'); INSERT INTO character_skills(characterid, skillid, value) VALUES ('" + charId + "','2','1'); INSERT INTO character_skills(characterid, skillid, value) VALUES ('" + charId + "','3','1'); INSERT INTO character_skills(characterid, skillid, value) VALUES ('" + charId + "','4','1');";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             this.CloseConnection();
         }
@@ -210,7 +210,7 @@ public class DBconnect
         string query = "Select id from users where username='" + username + "';";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
             int id = int.Parse(cmd.ExecuteScalar() + "");
             return id;
@@ -227,7 +227,7 @@ public class DBconnect
         string query = "Select rating from character_levels where characterid ='" + charid + "' AND levelid ='1';";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
             int level = int.Parse(cmd.ExecuteScalar() + "");
             return level;
@@ -239,7 +239,7 @@ public class DBconnect
     {
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             this.CloseConnection();
         }
@@ -251,7 +251,7 @@ public class DBconnect
         string query = "Select value from character_skills where characterid ='" + charid + "' and skillid='" + sid + "';";
         if (this.OpenConnection() == true)
         {
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
             var getvalue = cmd.ExecuteScalar();
             this.CloseConnection();

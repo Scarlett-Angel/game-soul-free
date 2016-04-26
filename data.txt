@@ -1,0 +1,49 @@
+USE msdb;
+GO
+
+CREATE TABLE dbo.characters
+   (id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    name varchar(25) NOT NULL,
+    userid int NOT NULL,
+    born datetime2 NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    death datetime2 DEFAULT NULL)
+GO
+
+
+
+CREATE TABLE dbo.character_levels
+   (id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    characterid int NOT NULL,
+    levelid int NOT NULL,
+    rating int NOT NULL,
+    progression int NOT NULL)
+GO
+
+
+
+CREATE TABLE dbo.character_skills
+   (id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    characterid int NOT NULL,
+    skillid int NOT NULL,
+    value int NOT NULL)
+GO
+
+
+
+CREATE TABLE dbo.games
+   (id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    name varchar(30) NOT NULL,
+    description varchar(500) NOT NULL) --or text
+GO
+
+
+
+
+CREATE TABLE dbo.users
+   (id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    email varchar(254) NOT NULL,
+    username varchar(30) NOT NULL,
+    pw varchar(254) NOT NULL)
+GO
+CREATE NONCLUSTERED INDEX indxuseremail ON dbo.users(email);
+CREATE NONCLUSTERED INDEX indxusername ON dbo.users(username);

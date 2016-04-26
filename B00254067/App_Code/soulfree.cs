@@ -5,13 +5,13 @@ using System.Web;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Data;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "soulfree" in code, svc and config file together.
 public class soulfree : Isoulfree
 {
-    WcfService3.DBconnect datacon = new WcfService3.DBconnect();
+    DBconnect datacon = new DBconnect();
     public int login(string username, string password)
     {
         bool userconfirmed = datacon.VerifyUser(username, password);

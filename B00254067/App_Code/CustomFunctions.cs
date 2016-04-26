@@ -18,8 +18,8 @@ public class CustomFunctions
 
     public int login(string username, string password)
     {
-        WebServer.IsoulfreeClient serverCon = new WebServer.IsoulfreeClient();
-        int loginReturn = serverCon.login(username, password);
+        soulfree soulfree = new soulfree();
+        int loginReturn = soulfree.login(username, password);
         switch (loginReturn)
         {
             case 0:

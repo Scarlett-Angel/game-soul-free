@@ -11,4 +11,13 @@ public partial class newCharacter : System.Web.UI.Page
     {
 
     }
+
+    protected void btn_submit_Click(object sender, EventArgs e)
+    {
+        soulfree soulfree = new soulfree();
+        string id = (string)(Session["userId"]);
+        string name = txt_name.Text;
+        soulfree.newCharacter(name, id);
+        Response.Redirect("LevelUp.aspx");
+    }
 }

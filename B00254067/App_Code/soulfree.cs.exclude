@@ -9,15 +9,16 @@ using System.Data.SqlClient;
 using System.Data;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "soulfree" in code, svc and config file together.
-public class soulfree : Isoulfree
+public class soulfree 
 {
     DBconnect datacon = new DBconnect();
+    DBconnectnew newdatacon = new DBconnectnew();
     public int login(string username, string password)
     {
-        bool userconfirmed = datacon.VerifyUser(username, password);
+        bool userconfirmed = newdatacon.VerifyUser(username, password);
         if (userconfirmed == true)
         {
-            int hasChar = datacon.userHasCharacter(username);
+            int hasChar = newdatacon.userHasCharacter(username);
             return hasChar;
         }
         else
@@ -29,10 +30,10 @@ public class soulfree : Isoulfree
     }
     public string newAccount(string username, string email, string password)
     {
-        bool userconfirmed = datacon.VerifyUser(username, password);
+        bool userconfirmed = newdatacon.VerifyUser(username, password);
         if (userconfirmed == false)
         {
-            datacon.NewUser(email, username, password);
+            newdatacon.NewUser(email, username, password);
             return "Confirm";
         }
         else
@@ -43,31 +44,32 @@ public class soulfree : Isoulfree
 
     public void newCharacter(string characterName, string id)
     {
-        datacon.createCharacter(characterName, id);
+        newdatacon.createCharacter(characterName, id);
     }
 
     public int getAccountId(string username)
     {
-        int id = datacon.getAccountId(username);
+        int id = newdatacon.getAccountId(username);
         return id;
     }
     public int getCharLevel(string id)
     {
-        int idreturn = datacon.getCharLevel(id);
+        int idreturn = newdatacon.getCharLevel(id);
         return idreturn;
     }
     public void sqlcommand(string query)
     {
-        datacon.sqlquery(query);
+        newdatacon.runsqlquery(query);
     }
     public string getSkillLevel(string uid, string sid)
     {
-        string returnvalue = datacon.getskillid(uid, sid);
+        string returnvalue = newdatacon.getskillid(uid, sid);
         return returnvalue;
     }
     public void levelUpSkill(string uid, string sid)
     {
-        datacon.levelUpSkill(uid, sid);
+        newdatacon.levelUpSkill(uid, sid);
     }
+    
 
 }

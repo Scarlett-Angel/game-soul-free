@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SoulFree </title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
+    <link href='https://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css' />
+    <link href="/css/animate.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/js/jquery-2.2.2.min.js"></script>
+    <script src ="/js/bootstrap.min.js" ></script>
+    <script src ="/js/setup.js" ></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+       
+        <div id="page" class="container-fluid">
+            <div class="bottom-corner ">
+<div id="main-content" class="row">
+    <div id="top-row" class="row">
+    
+     <div id="main-content-area" class="col-lg-10 col-md-10 col-md-push-2">
+    <div id="main-inner-text" class="col-md-10">
+    <div class="content-float"><asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+</div>
+</div>
+   <div class="col-md-2">
+    <div class="content-float">
+        <asp:Image ID="avatar" runat="server" Width="100%" />
+    <strong>
+        <asp:Label ID="Label1" runat="server" ></asp:Label></strong>
+    </div></div>
+</div>
+    <div id="left-bar-top" class="col-lg-2 col-md-2 col-md-pull-10">
+         <a href="Character.aspx" >Character</a>
+    </div>
+    
+</div>
+<div id="bottom-row" class="row">
+    <div class="col-lg-4 col-md-4" id="bottom-bar-logo">
+                                       <span id="logo-text">
+           </span><!--id=logo-text--> 
+        <div id="logo-anchor">
+
+           
+
+        </div><!--id=logo-anchor-->
+    </div><!--id=bottom-bar-logo-->
+    <div id="bottom-bar" class="col-lg-8 col-md-8">
+
+    </div>
+</div>
+        
+
+    </div><!--id=main-content-->
+        </div><!--bottom-corner-->
+</div> <!--id=page-->
+    </div>
+
+        
+    </form>
+</body>
+</html>

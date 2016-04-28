@@ -1,0 +1,222 @@
+/*
+ Theme Name: Scarlett-Angel
+ Author: Scarlett-Angel
+ Author URI: http://scarlett-angel.co.uk
+ Version: 1.0
+ */
+
+.center-align-outer {text-align:center;}
+.center-align-inner{display:inline-block;}
+h1, h2, h3, h4, h5, h6 {font-family:'Amatic SC', cursive;}
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 16px;
+  height: 100%;
+}
+#main-content, #page {height:inherit;}
+
+/*
+ *Footer
+ */
+footer {background-color: black;background-color: black; color:white; padding: 20px;}
+
+/*
+ *Bottom Corner
+ */
+.bottom-corner {height:100%;}
+.bottom-corner #top-row {height:83.34%;}
+.bottom-corner #left-bar-top {height:100%; background-color:black;background-color: rgba(0,0,0,0.95);  background-image: url(./theme-images/side-background.png);}
+.bottom-corner #bottom-row {height:16.66%;}
+.bottom-corner #logo {position:absolute; bottom:70%; z-index:99; }
+.bottom-corner #logo-anchor {position:relative; height:100%;}
+.bottom-corner #bottom-bar-logo {height:100%;  background-color:black;background-color: rgba(0,0,0,0.95); background-image: url(./theme-images/side-background.png);}
+.bottom-corner #bottom-bar {height:100%;  background-color:black; background-color: rgba(0,0,0,0.95); }
+.bottom-corner #logo-text h1 {color: white; font-size: 50px; padding-left:30%;;}
+.bottom-corner #main-content-area {overflow-y: scroll; height: 100%; background-color:#DDDDDD; background-color: rgba(221,221,221,0.97);}
+.bottom-corner .content-float {position:relative; z-index:100;}
+.animated-logo{
+  animation: fan-sway linear 32s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 100%;
+  -webkit-animation: fan-sway linear 32s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 100%;
+  -moz-animation: fan-sway linear 32s;
+  -moz-animation-iteration-count: infinite;
+  -moz-transform-origin: 50% 100%;
+  -o-animation: fan-sway linear 32s;
+  -o-animation-iteration-count: infinite;
+  -o-transform-origin: 50% 100%;
+  -ms-animation: fan-sway linear 32s;
+  -ms-animation-iteration-count: infinite;
+  -ms-transform-origin: 50% 100%;
+}
+
+@keyframes fan-sway{
+  0% {
+    transform:  rotate(0deg) ;
+  }
+  32% {
+    transform:  rotate(20deg) ;
+  }
+  50% {
+    transform:  rotate(0deg) ;
+  }
+  81% {
+    transform:  rotate(-12deg) ;
+  }
+  100% {
+    transform:  rotate(0deg) ;
+  }
+}
+
+@-moz-keyframes fan-sway{
+  0% {
+    -moz-transform:  rotate(0deg) ;
+  }
+  32% {
+    -moz-transform:  rotate(20deg) ;
+  }
+  50% {
+    -moz-transform:  rotate(0deg) ;
+  }
+  81% {
+    -moz-transform:  rotate(-12deg) ;
+  }
+  100% {
+    -moz-transform:  rotate(0deg) ;
+  }
+}
+
+@-webkit-keyframes fan-sway {
+  0% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+  32% {
+    -webkit-transform:  rotate(20deg) ;
+  }
+  50% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+  81% {
+    -webkit-transform:  rotate(-12deg) ;
+  }
+  100% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+}
+
+@-o-keyframes fan-sway {
+  0% {
+    -o-transform:  rotate(0deg) ;
+  }
+  32% {
+    -o-transform:  rotate(20deg) ;
+  }
+  50% {
+    -o-transform:  rotate(0deg) ;
+  }
+  81% {
+    -o-transform:  rotate(-12deg) ;
+  }
+  100% {
+    -o-transform:  rotate(0deg) ;
+  }
+}
+
+@-ms-keyframes fan-sway {
+  0% {
+    -ms-transform:  rotate(0deg) ;
+  }
+  32% {
+    -ms-transform:  rotate(20deg) ;
+  }
+  50% {
+    -ms-transform:  rotate(0deg) ;
+  }
+  81% {
+    -ms-transform:  rotate(-12deg) ;
+  }
+  100% {
+    -ms-transform:  rotate(0deg) ;
+  }
+}
+/*
+ *Splash page
+ */
+.splash-template {background-image:url(./theme-images/smoke-bg.gif); background-size: cover; background-attachment:fixed; background-repeat: no-repeat;}
+.splash-template h1 {font-size: 120px; margin-top:20%;}
+.splash-template h2 {font-size: 60px; margin-top:10px;}
+.splash-template h3 {font-size: 40px; margin-top:10px;}
+.splash-template .modal-content {font-size: 16px;wbackground-color: black !important; background-color: rgba(0,0,0,0.8); color: white;}
+.splash-template .modal-content h2, .splash-template .modal-content h3 {margin-top:0;}
+.splash-template .modal-body a {color:white;}
+.hvr-sweep-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000;
+  background: rgba(0,0,0,0.3);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: white;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+#main-content {height:inherit;}
+#splash-page-inner-text {display:inline-block; background-image: url(./theme-images/front-splash-logo.png); height:100%; background-repeat: no-repeat; background-size:contain; }
+#splash-page-title {background-color:#DDDDDD; background-color: rgba(233,233,233,0.9);height:inherit; text-align: center;}
+.splash-template .button {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color1.5
+  transition-property: color, background-color;
+}
+.splash-template .button:hover, .splash-template .button:focus, .splash-template .button:active {
+  background-color: rgba(255,255,255,0.6);
+  border: 1px solid white;
+}
+.splash-template .button {display:inline-block; border: 1px solid black; padding:1.5vw; color: black; margin-top:2vw; margin-bottom: 2vw;}
+.modal-body input {color:black;}

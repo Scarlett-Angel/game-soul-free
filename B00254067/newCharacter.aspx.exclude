@@ -18,6 +18,14 @@
             </tr>
             <tr>
                 <td>
+                    <strong>Upload a character image</strong>
+                </td>
+                <td>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
                   
                 </td>
                 <td>
@@ -26,6 +34,7 @@
             </tr>
         </table>
     </div>
+        <asp:Label ID="Label1" runat="server"></asp:Label>
     </form>
 </body>
 </html>

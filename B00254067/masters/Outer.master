@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masters/Header.master" AutoEventWireup="true" CodeFile="Outer.master.cs" Inherits="masters_Outer" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <title>Soul Free Choose Your Destiny</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="splash-template">
+        <div id="splash-page-title" class="co-lg-12">
+            <div id="splash-page-inner-text">
+
+                <h1>SOUL FREE</h1>
+
+                <br />
+                <button class="button" type="button" data-toggle="modal" data-target="#splash-box">
+                    Continue Your Journey
+                </button>
+
+                <div class="modal fade" id="splash-box">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Choose Your Adventure</h2>
+                            </div>
+                            <div class="modal-body">
+                                <div class="center-align-outer ">
+                                    <div class="center-align-inner ">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <h2>Login In</h2>
+                                                <table>
+                                                    <tr>
+                                                        <td><strong>Username</strong></td>
+                                                        <td>
+                                                            <asp:textbox id="txt_loginUsername" runat="server" cssclass="txt_login"></asp:textbox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Password</strong></td>
+                                                        <td>
+                                                            <asp:textbox id="txt_loginPassword" runat="server" cssclass="txt_login"></asp:textbox>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        
+                                                        <td colspan ="2">
+                                                            <asp:button id="btn_login" runat="server" text="Login" onclick="btn_login_Click" />
+
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                            </td>
+                                            <td>
+                                                
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    
+
+</div>
+                                </div>
+                                <p>
+                                    
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--id=splash-page-inner-text-->
+        </div>
+        <!--id=splash-page-title-->
+        <asp:label id="txt_notifcation" runat="server" forecolor="Red"></asp:label>
+        <asp:contentplaceholder id="ContentPlaceHolder3" runat="server">
+        
+        </asp:contentplaceholder>
+    </div>
+    <!--splash-template-->
+</asp:Content>
+

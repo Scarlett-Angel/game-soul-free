@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masters/Header.master" AutoEventWireup="true" CodeFile="newchar.master.cs" Inherits="masters_newchar" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div id="top-row" class="row">
+    
+     <div id="main-content-area" class="col-lg-10 col-md-10 col-md-push-2">
+    <div id="main-inner-text" class="col-md-10">
+    <div class="content-float"><asp:contentplaceholder id="ContentPlaceHolder3" runat="server">
+        
+        </asp:contentplaceholder>
+</div>
+</div>
+   <div class="col-md-2">
+    <div class="content-float">
+    <p>Create Your New Character</p>
+   
+    </div></div>
+</div>
+    <div id="left-bar-top" class="col-lg-2 col-md-2 col-md-pull-10">
+         
+    </div>
+    
+</div>
+<div id="bottom-row" class="row">
+    <div class="col-lg-4 col-md-4" id="bottom-bar-logo">
+                                       <span id="logo-text">
+            </span><!--id=logo-text--> 
+        <div id="logo-anchor">
+
+            
+
+        </div><!--id=logo-anchor-->
+    </div><!--id=bottom-bar-logo-->
+    <div id="bottom-bar" class="col-lg-8 col-md-8">
+
+    </div>
+</div>
+</asp:Content>

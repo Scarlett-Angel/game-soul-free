@@ -11,7 +11,6 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
-
     protected void btn_login_Click(object sender, EventArgs e)
     {
         string var_userName = txt_loginUsername.Text;
@@ -36,7 +35,7 @@ public partial class Login : System.Web.UI.Page
 
                 id = soulfree.getAccountId(var_userName);
                 Session["userId"] = id.ToString();
-                Response.Redirect("overview.aspx");
+                Response.Redirect("/inner/overview.aspx");
                 break;
         };
     }
@@ -44,6 +43,6 @@ public partial class Login : System.Web.UI.Page
     protected void santize_Click(object sender, EventArgs e)
     {
         soulfree soulfree = new soulfree();
-        soulfree.sqlcommand("TRUNCATE characters; TRUNCATE character_levels; TRUNCATE character_skills;");
+        soulfree.sqlcommand("TRUNCATE TABLE characters; TRUNCATE TABLE character_levels; TRUNCATE TABLE character_skills;");
     }
 }

@@ -69,7 +69,7 @@ public class modOuter
         Random rnd = new Random();
 
         string themoney = rnd.Next(1, 6).ToString();
-        string query = "INSERT INTO characters ( name, userid, strength, craft, fate, money, life, Alignment, oldlife) VALUES ('" + characterName + "','" + id + "', (SELECT Strength from oldLife WHERE Id = '" + job + "'),(SELECT craft from oldLife WHERE Id = '" + job + "'),(SELECT luck from oldLife WHERE Id = '" + job + "'),'"+themoney+ "', (SELECT life from oldLife WHERE Id = '" + job + "'),(SELECT aligment from oldLife WHERE Id = '" + job + "'),'"+job+"');";
+        string query = "INSERT INTO characters ( name, userid, strength, craft, fate, money, life, Alignment, oldlife, area) VALUES ('" + characterName + "','" + id + "', (SELECT Strength from oldLife WHERE Id = '" + job + "'),(SELECT craft from oldLife WHERE Id = '" + job + "'),(SELECT luck from oldLife WHERE Id = '" + job + "'),'"+themoney+ "', (SELECT life from oldLife WHERE Id = '" + job + "'),(SELECT aligment from oldLife WHERE Id = '" + job + "'),'"+job+ "', (SELECT start from oldLife WHERE Id = '" + job + "'));";
 
         SqlCommand cmd = sqlquery(query);
         con.Open();

@@ -157,7 +157,7 @@ public class modInner
         int resutl = cmd.ExecuteNonQuery();
         con.Close();
     }
-    public string getCharJob(string id)
+   /* public string getCharJob(string id)
     {
         modOuter m = new modOuter();
         int charid = m.getCharId(id);
@@ -171,5 +171,5 @@ public class modInner
         returnrating = int.Parse(thereader["rating"].ToString());
         con.Close();
         return returnrating;
-    }
+    }*/
 }

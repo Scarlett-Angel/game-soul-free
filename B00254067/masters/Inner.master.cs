@@ -14,7 +14,14 @@ public partial class masters_Inner : System.Web.UI.MasterPage
         if (string.IsNullOrEmpty(id)){
             Response.Redirect("../outer/index.aspx");
         }
+
         modOuter o = new modOuter();
+        modInner m = new modInner();
+        conOuter c = new conOuter ();
+        if (c.userHasLiveCharacter(id))
+        {
+            Response.Redirect("../outer/newchar.aspx");
+        }
         int charid = o.getCharId(id);
 
         string uploadDirectory = Path.Combine(Request.PhysicalApplicationPath, "Uploads\\" + id + "\\" + charid.ToString() + "\\prof");
@@ -27,7 +34,7 @@ public partial class masters_Inner : System.Web.UI.MasterPage
     Request.ApplicationPath.TrimEnd('/') + "/" + "Uploads/" + id + "/" + charid.ToString() + "/prof" + type;
             }
         }
-        modInner m = new modInner();
+        
         
         Label2.Text = m.getCharName(id);
         

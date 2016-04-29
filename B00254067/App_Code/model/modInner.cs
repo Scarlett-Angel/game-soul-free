@@ -20,7 +20,7 @@ public class modInner
         SqlCommand thequery = new SqlCommand(query, con);
         return thequery;
     }
-    SqlDataReader thereader;
+ 
     public int getAccountId(string username)
     {
         string query = "Select id from users where username='" + username + "';";
@@ -36,7 +36,7 @@ public class modInner
     }
     public int ableToLevel(string charId)
     {
-        string query = "Select Count(*) as value from character_levels where characterid='" + charId + "' AND rating = progression;";
+        string query = "Select Count(*) as value from character_levels where characterid='" + charId + "' AND rating <= progression;";
         int id;
         SqlCommand cmd = sqlquery(query);
         con.Open();
@@ -156,5 +156,20 @@ public class modInner
         con.Open();
         int resutl = cmd.ExecuteNonQuery();
         con.Close();
+    }
+    public string getCharJob(string id)
+    {
+        modOuter m = new modOuter();
+        int charid = m.getCharId(id);
+        string returnstring;
+        string query = "Select Name from oldLife";
+        SqlCommand cmd = sqlquery(query);
+        con.Open();
+        SqlDataReader thereader;
+        thereader = cmd.ExecuteReader();
+        thereader.Read();
+        returnrating = int.Parse(thereader["rating"].ToString());
+        con.Close();
+        return returnrating;
     }
 }

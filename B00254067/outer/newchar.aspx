@@ -4,6 +4,20 @@
     <div>
     <h1>Create a New Character</h1>
         <table>
+            
+            <tr>
+                <td colspan ="2">
+                   <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" CellPadding="10" CellSpacing="10" DataKeyNames="Id">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" Visible="False" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                            <asp:BoundField DataField="descript" HeaderText="descript" SortExpression="descript" />
+                            <asp:BoundField DataField="aligment" HeaderText="aligment" SortExpression="aligment"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name], [descript], [aligment] FROM [oldLife] ORDER BY [Name]"></asp:SqlDataSource></td>
+            </tr>
             <tr>
                 <td><strong>Character Name</strong></td>
                 <td>
@@ -19,6 +33,8 @@
             </tr>
             <tr>
                 <td>
+                  
+                    
                   
                 </td>
                 <td>

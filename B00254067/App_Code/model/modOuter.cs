@@ -38,7 +38,7 @@ public class modOuter
     public int userHasliveCharacter(string username)
     {
         int count;
-        string query = "SELECT COUNT(*) as result FROM (SELECT users.id, characters.userid from users INNER JOIN characters on users.id = characters.userid WHERE username = '" + username + "') temptable;";
+        string query = "SELECT COUNT(*) as result FROM (SELECT users.username , characters.id, characters.death from users INNER JOIN characters on users.id = characters.userid WHERE username = '"+username+"' AND death is null) temptable;";
         SqlCommand cmd = sqlquery(query);
         con.Open();
         thereader = cmd.ExecuteReader();
@@ -63,10 +63,14 @@ public class modOuter
         int resutl = cmd.ExecuteNonQuery();
         con.Close();
     }
-    public void createCharacter(string characterName, string id)
+    public void createCharacter(string characterName, string id, string job)
     {
         int charId;
-        string query = "INSERT INTO characters ( name, userid) VALUES ('" + characterName + "','" + id + "');";
+        Random rnd = new Random();
+
+        string themoney = rnd.Next(1, 6).ToString();
+        string query = "INSERT INTO characters ( name, userid, strength, craft, fate, money, life, Alignment, oldlife) VALUES ('" + characterName + "','" + id + "', (SELECT Strength from oldLife WHERE Id = '" + job + "'),(SELECT craft from oldLife WHERE Id = '" + job + "'),(SELECT luck from oldLife WHERE Id = '" + job + "'),'"+themoney+ "', (SELECT life from oldLife WHERE Id = '" + job + "'),(SELECT aligment from oldLife WHERE Id = '" + job + "'),'"+job+"');";
+
         SqlCommand cmd = sqlquery(query);
         con.Open();
         int resutl = cmd.ExecuteNonQuery();
@@ -87,6 +91,10 @@ public class modOuter
         SqlDataReader thereader;
         thereader = cmd.ExecuteReader();
         thereader.Read();
+        if (thereader.HasRows)
+        
+            returnid = int.Parse(thereader["id"].ToString());
+      
         returnid = int.Parse(thereader["id"].ToString());
         con.Close();
         return returnid;

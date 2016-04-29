@@ -20,7 +20,7 @@ public partial class outer_newchar : System.Web.UI.Page
         modOuter m = new modOuter();
         string name = txt_name.Text;
         string id = (string)(Session["userId"]);
-
+        string job = GridView1.SelectedValue.ToString();
         // Check the extension.
 
         string extension = Path.GetExtension(FileUpload1.PostedFile.FileName);
@@ -37,7 +37,7 @@ public partial class outer_newchar : System.Web.UI.Page
 
 
 
-                m.createCharacter(name, id);
+                m.createCharacter(name, id,job);
                 string characterId = Convert.ToString(m.getCharId(id));
                 uploadDirectory = Path.Combine(Request.PhysicalApplicationPath, "Uploads\\" + id + "\\" + characterId);
                 if (!System.IO.Directory.Exists(uploadDirectory))
@@ -58,5 +58,10 @@ public partial class outer_newchar : System.Web.UI.Page
         }
         m = null;
 
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridView1.SelectedRowStyle.BackColor = System.Drawing.Color.LightPink ;
     }
 }

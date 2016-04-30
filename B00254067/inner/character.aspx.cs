@@ -16,8 +16,8 @@ public partial class inner_character : System.Web.UI.Page
 
     protected void btn_submit_Click(object sender, EventArgs e)
     {
-        modOuter m = new modOuter();
-        string id = (string)(Session["userId"]);
+        
+        string username = (string)(Session["username"]);
 
         // Check the extension.
 
@@ -31,9 +31,9 @@ public partial class inner_character : System.Web.UI.Page
 
             case ".jpg":
             case ".png":
-
-                string characterId = Convert.ToString(m.getCharId(id));
-                uploadDirectory = Path.Combine(Request.PhysicalApplicationPath, "Uploads\\" + id + "\\" + characterId);
+                account acc = new account(username );
+                string characterId = acc.characterID ;
+                uploadDirectory = Path.Combine(Request.PhysicalApplicationPath, acc.getUploadDirectory );
                 if (!System.IO.Directory.Exists(uploadDirectory))
                 {
                     System.IO.Directory.CreateDirectory(uploadDirectory);
@@ -50,15 +50,13 @@ public partial class inner_character : System.Web.UI.Page
 
                 return;
         }
-        m = null;
-
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string id = (string)(Session["userId"]);
-        modInner m = new modInner();
-        m.updateCharName(id, txt_name.Text);
+        string username = (string)(Session["username"]);
+        account acc = new account(username);
+        acc.changeCharname(txt_name.Text);
         Response.Redirect("character.aspx");
     }
 }

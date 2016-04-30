@@ -232,7 +232,20 @@
     <div class="content-float">
      <asp:Image ID="avatar" runat="server" Width="100%" />
     <strong>
-        <asp:Label ID="Label2" runat="server" ></asp:Label></strong>
+        <asp:Label ID="lbl_title" runat="server" ></asp:Label>
+        <br />
+        <asp:Label ID="lbl_strength" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lbl_craft" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lbl_luck" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lbl_life" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lbl_alignment" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lbl_location" runat="server"></asp:Label>
+        </strong>
    
     </div></div>
 </div>
@@ -240,6 +253,7 @@
 
     <div id="left-bar-top" class="col-lg-2 col-md-2 col-md-pull-10">
          <a href="Character.aspx" >Character</a><br />
+        <a href="travel.aspx">Play</a><br />
         <asp:linkbutton runat="server" OnClick="Unnamed1_Click">Log Out</asp:linkbutton>
         
     </div>

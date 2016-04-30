@@ -13,18 +13,17 @@ public partial class outer_index : System.Web.UI.Page
     }
     protected void santize_Click(object sender, EventArgs e)
     {
-        modOuter m = new modOuter();
-        m.runsqlquery("TRUNCATE TABLE characters; TRUNCATE TABLE character_levels; TRUNCATE TABLE character_skills;");
-        m = null;
+       
+        debugmod.run("TRUNCATE TABLE gamestate;TRUNCATE TABLE characters; TRUNCATE TABLE character_levels; TRUNCATE TABLE character_skills;");
     }
     protected void btn__Click(object sender, EventArgs e)
     {
         string var_userName = txt_userName.Text;
         string var_password = txt_password.Text;
         string var_email = txt_email.Text;
-        conOuter c = new conOuter();
-        bool serverReturn = c.newAccount (var_userName, var_email, var_password);
-        switch (serverReturn)
+
+        switch (gateway.newAccount(txt_userName.Text, txt_password.Text, txt_email.Text)
+        )
         {
             case false:
                 lbl_notification.Text = "A user with that username already exists";
@@ -33,7 +32,12 @@ public partial class outer_index : System.Web.UI.Page
                 lbl_notification.Text = "Account created you can now login";
                 break;
         }
-        c = null;
 
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        acc acc = new acc();
+        Label2.Text = acc.getCharStats("1");
     }
 }

@@ -7,16 +7,16 @@
             
             <tr>
                 <td colspan ="2">
-                   <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" CellPadding="10" CellSpacing="10" DataKeyNames="Id">
+                   <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowSorting="True" CellPadding="10" CellSpacing="10" DataKeyNames="id">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" Visible="False" />
-                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                            <asp:BoundField DataField="descript" HeaderText="descript" SortExpression="descript" />
-                            <asp:BoundField DataField="aligment" HeaderText="aligment" SortExpression="aligment"></asp:BoundField>
+                            <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" Visible="False" />
+                            <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                            <asp:BoundField DataField="description" HeaderText="description" SortExpression="description" />
+                            <asp:BoundField DataField="aligment" HeaderText="aligment" SortExpression="aligment" />
                         </Columns>
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name], [descript], [aligment] FROM [oldLife] ORDER BY [Name]"></asp:SqlDataSource></td>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [id], [name], [description], [aligment] FROM [oldLife] ORDER BY [name]"></asp:SqlDataSource></td>
             </tr>
             <tr>
                 <td><strong>Character Name</strong></td>

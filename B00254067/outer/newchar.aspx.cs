@@ -12,15 +12,17 @@ public partial class outer_newchar : System.Web.UI.Page
     private string uploadDirectory;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string username = (string)(Session["username"]);
+        account acc = new account(username);
+        if (acc.userHasLiveCharacter)
+        {
+            Response.Redirect("../inner/overview.aspx");
+        }
     }
 
     protected void btn_submit_Click(object sender, EventArgs e)
     {
-        modOuter m = new modOuter();
-        string name = txt_name.Text;
-        string id = (string)(Session["userId"]);
-        string job = GridView1.SelectedValue.ToString();
+        string username = (string)(Session["username"]);
         // Check the extension.
 
         string extension = Path.GetExtension(FileUpload1.PostedFile.FileName);
@@ -34,12 +36,10 @@ public partial class outer_newchar : System.Web.UI.Page
             case ".jpg":
             case ".png":
 
-
-
-
-                m.createCharacter(name, id,job);
-                string characterId = Convert.ToString(m.getCharId(id));
-                uploadDirectory = Path.Combine(Request.PhysicalApplicationPath, "Uploads\\" + id + "\\" + characterId);
+                account acc = new account(username);
+                acc.createCharacter(txt_name.Text, GridView1.SelectedValue.ToString());
+               
+                uploadDirectory = Path.Combine(Request.PhysicalApplicationPath, acc.getUploadDirectory);
                 if (!System.IO.Directory.Exists(uploadDirectory))
                 {
                     System.IO.Directory.CreateDirectory(uploadDirectory);
@@ -56,7 +56,7 @@ public partial class outer_newchar : System.Web.UI.Page
 
                 return;
         }
-        m = null;
+
 
     }
 

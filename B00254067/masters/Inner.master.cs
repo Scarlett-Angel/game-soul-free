@@ -40,7 +40,7 @@ public partial class masters_Inner : System.Web.UI.MasterPage
         lbl_life.Text = "<strong>Life: </strong>" + acc.life;
         lbl_alignment.Text = "<strong>Alignment: </strong>" + acc.alignment;
         lbl_location.Text = "<strong>Location: </strong>" + loc.name;
-        if (acc.ableToLevelUp)
+        if (!acc.ableToLevelUp)
         {
             levelupchoice.Visible = false;
         }

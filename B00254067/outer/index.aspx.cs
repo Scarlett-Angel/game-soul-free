@@ -37,7 +37,9 @@ public partial class outer_index : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        acc acc = new acc();
-        Label2.Text = acc.getCharStats("1");
+
+        Label2.Text = play.testfight(1, 1);
+
+        
     }
 }

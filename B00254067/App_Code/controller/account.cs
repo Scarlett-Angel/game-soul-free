@@ -26,7 +26,6 @@ public class account
     private int areaID = -1;
     private int jbID = -1;
     public account(string username)
-        
     {
         usernm = username;
         acc acc = new acc();
@@ -40,7 +39,6 @@ public class account
         {
             liveChar = false;
         }
-
     }
     public string characterName
     {
@@ -297,7 +295,7 @@ public class account
 private void getPlayState()
     {
         acc acc = new acc();
-        string[] statestring = acc.getPlayState(charID).Split(';');
+        string[] statestring = acc.getPlayState(accID).Split(';');
         roll = int.Parse(statestring[0]);
         state = int.Parse(statestring[1]);
     }
@@ -324,5 +322,25 @@ private void getPlayState()
             }
             else return state;
         }
+    }
+    public void setPlayState(int roll, int state)
+    {
+        acc acc = new acc();
+        acc.setPlayState(state, roll, int.Parse(accID));
+    }
+    public void increasteStrength(int increase)
+    {
+        acc acc = new acc();
+        acc.increaseStrength(int.Parse (charID), increase);
+    }
+    public void decreaseLife(int decrease)
+    {
+        acc acc = new acc();
+        acc.decreaseLife(int.Parse(charID), decrease);
+    }
+    public void setLocation(int location)
+    {
+        acc acc = new acc();
+        acc.setLocation(charID, location);
     }
 }

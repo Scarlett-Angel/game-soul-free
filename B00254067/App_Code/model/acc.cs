@@ -83,7 +83,7 @@ public class acc
         cmd = db.query(query, con);
         e = cmd.ExecuteNonQuery();
         con.Close();
-        query = "INSERT INTO gamestate (accID, state, roll) VALUES ('" + account.characterID + "', '1', '0');";
+        query = "INSERT INTO gamestate (accID, state, roll) VALUES ('" + account.accountID  + "', '1', '0');";
         con.Open();
         cmd = db.query(query, con);
         e = cmd.ExecuteNonQuery();
@@ -269,6 +269,50 @@ public class acc
         string returnstring = rdr["roll"].ToString() + ";" + rdr["state"].ToString();
         con.Close();
         return returnstring;
+    }
+    public void setPlayState(int state, int roll, int accID)
+    {
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        con.ConnectionString = db.con();
+        string query = "UPDATE gamestate SET roll = "+ roll + ", state = '" + state + "' WHERE accID=" + accID + ";";
+        cmd = db.query(query, con);
+        con.Open();
+        int erd = cmd.ExecuteNonQuery();
+        con.Close();
+    }
+    public void increaseStrength(int charID, int increase)
+    {
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        con.ConnectionString = db.con();
+        string query = "UPDATE characters SET strength = strength + " + increase + " WHERE id = " + charID + ";";
+        cmd = db.query(query, con);
+        con.Open();
+        int erd = cmd.ExecuteNonQuery();
+        con.Close();
+    }
+    public void decreaseLife(int charID, int ammount)
+    {
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        con.ConnectionString = db.con();
+        string query = "UPDATE characters SET life = life - " + ammount  + " WHERE id = " + charID + ";";
+        cmd = db.query(query, con);
+        con.Open();
+        int erd = cmd.ExecuteNonQuery();
+        con.Close();
+    }
+    public void setLocation(string charID, int location)
+    {
+        SqlConnection con = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        con.ConnectionString = db.con();
+        string query = "UPDATE characters SET area = " + location + " WHERE id = " + charID + ";";
+        cmd = db.query(query, con);
+        con.Open();
+        int erd = cmd.ExecuteNonQuery();
+        con.Close();
     }
 
 }

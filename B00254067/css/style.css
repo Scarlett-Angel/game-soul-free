@@ -16,7 +16,7 @@ html, body {
   height: 100%;
 }
 #main-content, #page {height:inherit;}
-
+#ContentPlaceHolder1_levelupchoice td {padding:10px;}
 /*
  *Footer
  */
